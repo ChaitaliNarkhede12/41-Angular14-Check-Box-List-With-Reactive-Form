@@ -1,0 +1,18 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+  <label>
+    <input type="checkbox" formControlName="selectAll" /> Select All/Deselect All
+  </label>
+
+  <br />
+
+  <label formArrayName="orders" *ngFor="let order of getOrderControl.controls; let i = index">
+    <input type="checkbox" [formControlName]="i" /> {{ordersData[i].name}}
+    <br />
+  </label>
+
+  <button type="submit">submit</button>
+</form>
+
+
+{{selectedOrderIds}}
